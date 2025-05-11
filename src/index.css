@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 25% 14%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 25% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 25% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 199 92% 47.3%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262 83.3% 57.8%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-portfolio-dark text-foreground;
+  }
+
+  /* Estilos personalizados */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-purple to-portfolio-blue;
+  }
+
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-r before:from-portfolio-purple before:to-portfolio-blue before:rounded-lg before:-z-10;
+  }
+
+  .highlight-section {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-portfolio-purple/10 before:to-portfolio-blue/10 before:rounded-lg before:blur-3xl before:-z-10;
+  }
+}
+
+@layer utilities {
+  .animate-slide-up {
+    @apply animate-[slide-up_0.5s_ease-out];
+  }
+  
+  .animate-fade-in-delayed {
+    @apply animate-[fade-in_0.5s_ease-out_0.2s] opacity-0 animation-fill-mode-forwards;
+  }
+  
+  .animate-hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .animate-smooth-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s linear infinite;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
